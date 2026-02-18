@@ -10,7 +10,6 @@ h1 {
     display: block;
     margin: 0 auto;
     font-size: 1rem;
-    font-weight: 400;
   }
 }
 
@@ -23,15 +22,8 @@ h1 {
 
 #container {
   display: grid;
-  grid-template-columns: 
-    min-content
-    0.6rem 
-    minmax(12rem, 1fr)
-    minmax(12rem, 1fr)
-    minmax(12rem, 1fr)
-    minmax(12rem, 1fr)
-    minmax(12rem, 1fr)
-    minmax(12rem, 1fr);
+  grid-template-columns:
+    min-content 0.6rem repeat(6, minmax(0, 1fr));
   grid-template-rows: repeat(11, 15rem);
   column-gap: 2rem;
   padding-block: 2rem;
@@ -135,8 +127,6 @@ h1 {
     grid-row: 7 / span 4;
     grid-column: 5 / span 2;
   }
-
-
 }
 
 .inner-content {
@@ -145,7 +135,7 @@ h1 {
   padding: 1rem;
   min-height: 4rem;
   min-width: 80%;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
 .period,
@@ -161,24 +151,6 @@ h1 {
   background-color: #1F95CC;
 }
 
-.responsibility.inner{
-  background-color: #1F95CC;
-  padding: 6px 6px;
-}
-
-.inner-content p {
-  margin: 0em 0.6rem;
-}
-
 .responsibility {
   background-color: #E0860A;
-}
-
-h2 {
-  font-weight: 500;
-}
-
-h3, h4 {
-  margin: 6px;
-  font-weight: 600;
 }
