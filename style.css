@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h1 {
@@ -9,7 +10,8 @@ h1 {
   small {
     display: block;
     margin: 0 auto;
-    font-size: 1.2rem
+    font-size: 1rem;
+    font-weight: 400;
   }
 }
 
@@ -22,8 +24,16 @@ h1 {
 
 #container {
   display: grid;
-  grid-template-columns: min-content 0.6rem auto auto;
-  grid-template-rows: repeat(5, 15rem);
+  grid-template-columns: 
+    min-content
+    0.6rem 
+    minmax(12rem, 1fr)
+    minmax(12rem, 1fr)
+    minmax(12rem, 1fr)
+    minmax(12rem, 1fr)
+    minmax(12rem, 1fr)
+    minmax(12rem, 1fr);
+  grid-template-rows: repeat(11, 15rem);
   column-gap: 2rem;
   padding-block: 2rem;
   overflow: visible;
@@ -74,7 +84,7 @@ h1 {
 #entries {
   display: grid;
   grid-row: 1 / -1;
-  grid-column: span 2;
+  grid-column: span 6;
   row-gap: 2rem;
   grid-template-rows: subgrid;
   grid-template-columns: subgrid;
@@ -84,7 +94,7 @@ h1 {
     background-color: #eee;
     border-radius: 1rem;
     padding: 1rem;
-    grid-column: span 2;
+    grid-column: span 6;
 
     &::before {
       content: "";
@@ -98,13 +108,25 @@ h1 {
     }
   }
 
+  .column-3 {
+    grid-column: 5;
+    grid-row: 7 / span 3;
+  }
 
   .parallel-2 {
-    grid-column: span 1;
+    grid-column: span 3;
+  }
+
+  .parallel-3 {
+    grid-column: span 2;
   }
 
   .span-2 {
     grid-row: span 2;
+  }
+
+  .span-3 {
+    grid-row: span 3;
   }
 
   .postpone-2 {
@@ -114,6 +136,22 @@ h1 {
   .prepone-2 {
     margin-bottom: 2rem;
   }
+
+  .ipa {
+    grid-row: 7 / span 4;
+    grid-column: 5 / span 2;
+  }
+
+
+}
+
+.inner-content {
+  background-color: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  min-height: 4rem;
+  min-width: 80%;
+  border-radius: 2rem;
 }
 
 .period,
@@ -121,12 +159,32 @@ h1 {
   color: #FFF;
   padding: 0.4rem 0.8rem;
   border-radius: 2rem;
+  font-weight: 200;
+  font-size: small;
 }
 
 .period {
   background-color: #1F95CC;
 }
 
+.responsibility.inner{
+  background-color: #1F95CC;
+  padding: 6px 6px;
+}
+
+.inner-content p {
+  margin: 0em 0.6rem;
+}
+
 .responsibility {
   background-color: #E0860A;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+h3, h4 {
+  margin: 6px;
+  font-weight: 600;
 }
