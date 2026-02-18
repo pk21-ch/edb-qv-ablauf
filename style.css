@@ -29,7 +29,7 @@ h2 {
   display: grid;
   grid-template-columns:
     min-content 0.6rem repeat(2, minmax(25rem, 1fr));
-  grid-template-rows: repeat(11, 15rem);
+  grid-template-rows: repeat(12, 15rem);
   column-gap: 2rem;
   row-gap: 2rem;
   padding-block: 2rem;
