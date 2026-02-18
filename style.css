@@ -107,11 +107,6 @@ h1 {
     }
   }
 
-  .column-3 {
-    grid-column: 5;
-    grid-row: 7 / span 3;
-  }
-
   .parallel-2 {
     grid-column: span 3;
   }
