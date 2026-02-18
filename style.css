@@ -23,7 +23,7 @@ h1 {
 #container {
   display: grid;
   grid-template-columns:
-    min-content 0.6rem repeat(6, minmax(0, 1fr));
+    min-content 0.6rem repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(11, 15rem);
   column-gap: 2rem;
   padding-block: 2rem;
@@ -81,17 +81,16 @@ h1 {
 #entries {
   display: grid;
   grid-row: 1 / -1;
-  grid-column: span 6;
+  grid-column: span 2;
   row-gap: 2rem;
   grid-template-rows: subgrid;
   grid-template-columns: subgrid;
-
   >div {
     position: relative;
     background-color: #eee;
     border-radius: 1rem;
     padding: 1rem;
-    grid-column: span 6;
+    grid-column: span 2;
 
     &::before {
       content: "";
@@ -106,7 +105,7 @@ h1 {
   }
 
   .parallel-2 {
-    grid-column: span 3;
+    grid-column: span 1;
   }
 
   .parallel-3 {
@@ -131,7 +130,26 @@ h1 {
 
   .ipa {
     grid-row: 7 / span 4;
-    grid-column: 5 / span 2;
+    grid-column: 3 / span 1;
+    overflow-y: scroll;
+  }
+
+  .parallel-3-block {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    grid-row: span 3;
+    grid-column: span 1;
+  }
+
+  .bewertung {
+    grid-row: 8 / span 2;
+    grid-column: 1 / span 1;
+  }
+
+  .abschluss {
+    grid-row: -1 / span 1;
+    grid-column: 1 / span 2;
   }
 }
 
