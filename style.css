@@ -1,0 +1,132 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-block: 2rem;
+
+  small {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.2rem
+  }
+}
+
+#legend {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-block: 2rem;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: min-content 0.6rem auto auto;
+  grid-template-rows: repeat(5, 15rem);
+  column-gap: 2rem;
+  padding-block: 2rem;
+  overflow: visible;
+}
+
+#months {
+  display: grid;
+  grid-row: 1 / -1;
+  row-gap: 2rem;
+  grid-template-rows: subgrid;
+
+  >div {
+    padding-block: 1rem;
+    text-align: end;
+  }
+}
+
+#line {
+  position: relative;
+  grid-row: 1 / -1;
+  background: linear-gradient(to bottom,
+      hsl(334, 89%, 42%),
+      hsl(290, 80%, 45%),
+      hsl(240, 100%, 50%),
+      hsl(180, 100%, 50%),
+      hsl(120, 100%, 50%),
+      hsl(67, 88%, 40%));
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: hsl(334, 89%, 42%);
+    left: -100%;
+    bottom: calc(100% - 0.6rem);
+    border-radius: 50%;
+  }
+
+  &::after {
+    background-color: hsl(67, 88%, 40%);
+    top: calc(100% - 0.6rem);
+  }
+}
+
+#entries {
+  display: grid;
+  grid-row: 1 / -1;
+  grid-column: span 2;
+  row-gap: 2rem;
+  grid-template-rows: subgrid;
+  grid-template-columns: subgrid;
+
+  >div {
+    position: relative;
+    background-color: #eee;
+    border-radius: 1rem;
+    padding: 1rem;
+    grid-column: span 2;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #eee;
+      width: 2rem;
+      height: 0.4rem;
+      left: -2rem;
+      top: 1.3rem
+    }
+  }
+
+
+  .parallel-2 {
+    grid-column: span 1;
+  }
+
+  .span-2 {
+    grid-row: span 2;
+  }
+
+  .postpone-2 {
+    margin-top: 2rem;
+  }
+
+  .prepone-2 {
+    margin-bottom: 2rem;
+  }
+}
+
+.period,
+.responsibility {
+  color: #FFF;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+}
+
+.period {
+  background-color: #1F95CC;
+}
+
+.responsibility {
+  background-color: #E0860A;
+}
