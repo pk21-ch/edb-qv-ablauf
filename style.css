@@ -33,12 +33,19 @@ h1 {
 #months {
   display: grid;
   grid-row: 1 / -1;
-  row-gap: 2rem;
   grid-template-rows: subgrid;
 
   >div {
     padding-block: 1rem;
-    text-align: end;
+    text-align: center;
+    writing-mode: sideways-lr;
+    text-orientation: sideways;
+    border-inline-start: 0.4rem solid #eee;
+    margin-block-end: -2rem;
+
+    &:first-child {
+      border-inline-end: 0.4rem solid #eee;
+    }
   }
 }
 
