@@ -9,8 +9,12 @@ h1 {
   small {
     display: block;
     margin: 0 auto;
-    font-size: 1.2rem
+    font-size: 1rem;
   }
+}
+
+h2 {
+  margin-block: 0.5rem;
 }
 
 #legend {
@@ -22,8 +26,9 @@ h1 {
 
 #container {
   display: grid;
-  grid-template-columns: min-content 0.6rem auto auto;
-  grid-template-rows: repeat(5, 15rem);
+  grid-template-columns:
+    min-content 0.6rem repeat(2, minmax(25rem, 1fr));
+  grid-template-rows: repeat(11, 15rem);
   column-gap: 2rem;
   padding-block: 2rem;
   overflow: visible;
@@ -32,12 +37,18 @@ h1 {
 #months {
   display: grid;
   grid-row: 1 / -1;
-  row-gap: 2rem;
   grid-template-rows: subgrid;
 
   >div {
     padding-block: 1rem;
-    text-align: end;
+    text-align: center;
+    writing-mode: sideways-lr;
+    text-orientation: sideways;
+    margin-block-end: -2rem;
+
+    &:nth-child(2n) {
+      background-color: #eee;
+    }
   }
 }
 
@@ -71,6 +82,27 @@ h1 {
   }
 }
 
+
+:where(#entries)>div,
+:where(#entries)>.block-2>div {
+  position: relative;
+  background-color: #eee;
+  border-radius: 1rem;
+  padding: 1rem;
+  grid-column: span 2;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #eee;
+    width: 2rem;
+    height: 0.4rem;
+    left: -2rem;
+    top: 1.3rem;
+  }
+}
+
 #entries {
   display: grid;
   grid-row: 1 / -1;
@@ -79,32 +111,32 @@ h1 {
   grid-template-rows: subgrid;
   grid-template-columns: subgrid;
 
-  >div {
-    position: relative;
-    background-color: #eee;
-    border-radius: 1rem;
-    padding: 1rem;
-    grid-column: span 2;
-
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      background-color: #eee;
-      width: 2rem;
-      height: 0.4rem;
-      left: -2rem;
-      top: 1.3rem
-    }
+  .block-2 {
+    display: grid;
+    background-color: transparent;
+    padding: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
   }
 
+  .empty {
+    opacity: 0;
+  }
 
   .parallel-2 {
     grid-column: span 1;
   }
 
+  .parallel-3 {
+    grid-column: span 2;
+  }
+
   .span-2 {
     grid-row: span 2;
+  }
+
+  .span-3 {
+    grid-row: span 3;
   }
 
   .postpone-2 {
@@ -114,13 +146,39 @@ h1 {
   .prepone-2 {
     margin-bottom: 2rem;
   }
+
+  .execution {
+    display: flex;
+    flex-direction: column;
+    grid-row: 7 / span 4;
+    grid-column: 3 / -1;
+  }
+
+  .inner {
+    overflow-y: scroll;
+
+    &>div {
+      background-color: #fff;
+      margin-block-end: 1rem;
+      padding: 1rem;
+      min-height: 4rem;
+      min-width: 80%;
+      border-radius: 1rem;
+    }
+  }
 }
 
 .period,
 .responsibility {
+  display: inline-block;
+  margin-block-end: 0.2rem;
   color: #FFF;
   padding: 0.4rem 0.8rem;
   border-radius: 2rem;
+  font-weight: 200;
+  font-size: 0.8rem;
+  white-space: nowrap;
+
 }
 
 .period {
