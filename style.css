@@ -40,11 +40,10 @@ h1 {
     text-align: center;
     writing-mode: sideways-lr;
     text-orientation: sideways;
-    border-inline-start: 0.4rem solid #eee;
     margin-block-end: -2rem;
 
-    &:first-child {
-      border-inline-end: 0.4rem solid #eee;
+    &:nth-child(2n) {
+      background-color: #eee;
     }
   }
 }
